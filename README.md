@@ -1,70 +1,125 @@
-# Getting Started with Create React App
+# 📇 Contact Manager App (React + JSON Server + REST API)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A clean **Contact Management System** built using **ReactJS**, **React Router v6**, **Axios REST API**, and **JSON Server** as a fake backend.
 
-## Available Scripts
+This project performs real API-based **CRUD operations** while maintaining a smooth **Single Page Application (SPA)** flow and **Semantic UI styling**.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+✅ Add Contacts (Name + Email)  
+✅ Edit Contacts (Pre-filled Update Form)  
+✅ Delete Contacts (Using Trash Icon)  
+✅ Search Contacts (Real-time filtering)  
+✅ Client-side Routing (No page reload)  
+✅ Persistent Data (Saved in browser + JSON DB)  
+✅ Unique Contact IDs (Generated using UUID)  
+✅ Responsive row layout using Flexbox  
+✅ Semantic UI clean interface
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🧠 Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Technology | Usage |
+|---|---|
+| ReactJS | Component-based UI |
+| React Router v6 | SPA Routing |
+| Axios | REST API Communication |
+| JSON Server | Fake backend database server |
+| UUID | Generates unique contact IDs |
+| LocalStorage | Optional browser persistence |
+| Semantic UI | UI styling and icons |
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📌 API Endpoints
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+GET /contacts → Fetch all contacts
+POST /contacts → Add a new contact
+PUT /contacts/:id → Update an existing contact
+DELETE /contacts/:id → Delete a contact
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+yaml
+Copy code
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🛠 Installation & Setup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. Install all dependencies
+```
+npm install
+2. Start the React app
+sh
+Copy code
+npm start
+3. Start JSON server (in a separate terminal)
+sh
+Copy code
+npm run server
+⚡ JSON Server runs on port 3006 (as configured in your project)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+🔁 UI Flow
+pgsql
+Copy code
+Contact List (/)
+   │
+   ├── Click "Add More Contacts" → /add
+   │         └── Submit form → Redirects back to /
+   │
+   ├── Trash icon click → DELETE API call → Updates UI
+   │
+   ├── Typing in search → Filters list in real time
+   │
+   └── Contact name click → /contact/:id (opens detail page)
+             └── Back button returns to /
+🧩 React Concepts Used
+✅ Covered in this project:
+Functional Components
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Class Components
 
-## Learn More
+Local Component State
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Hooks (useState, useEffect)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Vue-like Controlled Forms
 
-### Code Splitting
+Props communication / function drilling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+List rendering using map() with key
 
-### Analyzing the Bundle Size
+Search filtering using filter() + includes()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Async API calls using async/await
 
-### Making a Progressive Web App
+React Router v6 (Routes, Route, Link, Navigate, useParams, useLocation)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+State immutability using spread (...) operator
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+✅ Folder Structure (Clean & Recommended)
+pgsql
+Copy code
+src/
+ ├── api/
+ │     └── contacts.js  → Axios instance
+ ├── components/
+ │     ├── App.js
+ │     ├── Header.js
+ │     ├── AddContact.js
+ │     ├── EditContact.js
+ │     ├── ContactList.js
+ │     ├── ContactDetail.js
+ │     └── ContactCard.js
+ ├── images/
+ │     └── user.png  → Default avatar
+ ├── App.css
+ └── index.js  → Entry point
+🧪 JSON Server DB (db.json)
+json
+Copy code
+{
+  "contacts": []
+}
